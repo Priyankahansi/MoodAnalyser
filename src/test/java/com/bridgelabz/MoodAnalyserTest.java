@@ -19,9 +19,15 @@ class MoodAnalyserTest extends MoodAnalyser {
         MoodAnalyser mood = new MoodAnalyser();
         String result = MoodAnalyser.analyzeMood2("i am in sad mood");
         assertEquals("SAD", result);
+
+    }
+
+    void givenMessageWhenIaminsadmoodShouldReturnHappy() {
+        MoodAnalyser mood = new MoodAnalyser();
+        String result = MoodAnalyser.analyzeMood3("i am in any mood");
+        assertEquals("SAD", result);
     }
 }
-
 
 
 
