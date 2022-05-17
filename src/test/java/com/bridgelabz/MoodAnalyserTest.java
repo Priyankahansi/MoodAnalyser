@@ -14,4 +14,8 @@ class MoodAnalyserTest extends MoodAnalyser {
         String result = MoodAnalyser.analyzeMood("Sad");
         assertEquals("SAD", result);
     }
+
 }
+
+
+
