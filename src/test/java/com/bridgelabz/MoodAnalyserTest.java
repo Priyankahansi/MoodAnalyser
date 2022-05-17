@@ -7,25 +7,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MoodAnalyserTest extends MoodAnalyser {
-    @Test
-    void givenMessageWhenSadShouldReturnSad() {
-        MoodAnalyser mood = new MoodAnalyser();
-        String result = MoodAnalyser.analyzeMood("sad");
-        assertEquals("SAD", result);
-    }
+
 
     @Test
-    void givenMessageWhenIaminsadmoodShouldReturnSad() {
-        MoodAnalyser mood = new MoodAnalyser();
-        String result = MoodAnalyser.analyzeMood2("i am in sad mood");
-        assertEquals("SAD", result);
-
-    }
-
-    void givenMessageWhenIaminsadmoodShouldReturnHappy() {
-        MoodAnalyser mood = new MoodAnalyser();
-        String result = MoodAnalyser.analyzeMood3("i am in any mood");
-        assertEquals("SAD", result);
+    public void givenNullMood_ShouldThrowException() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood = moodAnalyser.analyseMood("Sad");
+        assertEquals("SAD", mood);
     }
 }
 
