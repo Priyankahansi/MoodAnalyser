@@ -7,30 +7,32 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MoodAnalyserTest extends MoodAnalyser {
-
-    public MoodAnalyserTest(String message) {
-        super(message);
+    public MoodAnalyserTest(String i_am_in_happy_mood) {
+        super(i_am_in_happy_mood);
     }
 
     @Test
-    public void givenNullMood_ShouldThrowException() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser("Sad");
-        String mood = moodAnalyser.analyseMood("SAD");
-        assertEquals("SAD", mood);
-    }
-
-    @Test
-    public void givenMessage_SadMood_Should_Return_Happy() {
+    public void givenMessage_SadMood_Should_Return_Sad() {
         MoodAnalyser moodAnalyzer = new MoodAnalyser("I am In a Sad Mood");
-        String mood = moodAnalyzer.analyseMood("SAD");
-        assertEquals("SAD", mood);
+        String mood;
+        try {
+            mood = moodAnalyzer.analyseMood();
+            assertEquals("SAD", mood);
+        } catch (MoodAnalysisException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void givenMessage_AnyMood_Should_HandleException() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String mood = moodAnalyser.analyseMood("Happy");
-        assertEquals("HAPPY", mood);
+    public void givenMessage_AnyMood_Should_Return_HAPPY() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Happy Mood");
+        String mood;
+        try {
+            mood = moodAnalyser.analyseMood();
+            assertEquals("HAPPY", mood);
+        } catch (MoodAnalysisException e) {
+            e.printStackTrace();
+        }
     }
 }
 
